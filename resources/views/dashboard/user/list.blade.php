@@ -8,7 +8,7 @@
             </div>
 
             <div class="col-4">
-               <form method="GET" action="{{ url('dashboard/users') }}">
+               <form method="get" action="{{ url('dashboard/users') }}">
                   <div class="input-group">
                      <input type="text" class="form-control form-control-sm" name="q" value="{{ $request['q'] ?? '' }}">
                      <div class="input-group-append">
