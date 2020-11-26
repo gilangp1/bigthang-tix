@@ -24,10 +24,12 @@ Route::middleware('auth')->group(function (){
 
     Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dashboard');
 
-    Route::get('/dashboard/movies', 'Dashboard\MoviesController@index')->name('dashboard.movies');
+    //movies
+    Route::get('/dashboard/movies', 'Dashboard\MovieController@index')->name('dashboard.movies');
+
     Route::get('/dashboard/theaters', 'Dashboard\TheatersController@index')->name('dashboard.theaters');
     Route::get('/dashboard/tickets', 'Dashboard\TicketsController@index')->name('dashboard.tickets');
-
+    
     //users
     Route::get('/dashboard/users', 'Dashboard\UserController@index')->name('dashboard.users');
     Route::get('/dashboard/users/{id}', 'Dashboard\UserController@edit')->name('dashboard.users.edit');
