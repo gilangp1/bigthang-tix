@@ -21,6 +21,7 @@
       </div>
 
       <div class="card-body p-0">
+         @if ($movies->total())
          <table class="table table-borderless table-striped table-hover">
             <thead>
                <tr>
@@ -37,13 +38,16 @@
                   <td>{{ $movie->title }}</td>
                   <td>{{ $movie->thumbnail }}</td>
                   <td><a href="{{ route('dashboard.movies.edit', ['id' => $movie->id]) }}" class="btn btn-success btn-sm" title="edit">
-                        <i class="fas fa-pen"></i></a>
+                     <i class="fas fa-pen"></i></a>
                   </td>
                </tr>
                @endforeach
             </tbody>
          </table>
          {{ $movies->appends($request)->links() }}
+         @else
+         <h4 class="text-center">belum ada data movies</h4>
+         @endif
       </div>
    </div>
    @endsection
