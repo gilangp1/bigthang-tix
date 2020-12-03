@@ -80,7 +80,9 @@ class MovieController extends Controller
             $movie->thumbnail = $fileName;
             $movie->save();
             return redirect()
-                    ->route('dashboard.movies');
+                    ->route('dashboard.movies')
+                    ->with(['message' => __('messages.store', ['title' => 'Movie']),
+                            'alert-class' => 'alert-success']);
         }
     }
 
@@ -141,11 +143,16 @@ class MovieController extends Controller
             Storage::disk('local')->putFileAs('public/movies', $image, $fileName);
             $movie->thumbnail = $fileName;
         }
+            $title = $movie->title;
+            
             $movie->title = $request->input('title');
             $movie->description = $request->input('description');
             $movie->save();
+
             return redirect()
-                    ->route('dashboard.movies');
+                    ->route('dashboard.movies')
+                    ->with(['message'=>__('messages.update', ['title' => $title]),
+                            'alert-class'=>'alert-info']);
         }
     }
 
@@ -157,9 +164,13 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
+        $title = $movie->title;
+
         $movie->delete();
         
         return redirect()
-               ->route('dashboard.movies');
+               ->route('dashboard.movies')
+               ->with(['message'=> __('messages.delete', ['title' => $title]),
+                       'alert-class'=>'alert-danger']);
     }
 }
