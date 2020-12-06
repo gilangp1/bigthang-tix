@@ -36,33 +36,33 @@
 
       <div class="card-body p-0">
          @if ($theaters->total())
-         <table class="table table-borderless table-striped table-hover">
-            <thead>
-               <tr>
-                  <th>Theater</th>
-                  <th>Address</th>
-                  <th>&nbsp;</th>
-               </tr>
-            </thead>
-            <tbody>
-               @foreach ($theaters as $theater)    
-               <tr>
-                  <td>
-                     {{ $theater->theater }}
-                  </td>
-                  <td>
-                     {{ $theater->address }}
-                  </td>
-                  <td><a href="{{ route('dashboard.theaters.edit', $theater->id) }}" class="btn btn-success btn-sm" title="edit">
-                     <i class="fas fa-pen"></i></a>
-                  </td>
-               </tr>
-               @endforeach
-            </tbody>
-         </table>
+            <table class="table table-borderless table-striped table-hover">
+               <thead>
+                  <tr>
+                     <th>Theater</th>
+                     <th>Address</th>
+                     <th>&nbsp;</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  @foreach ($theaters as $theater)    
+                  <tr>
+                     <td>
+                        {{ $theater->theater }}
+                     </td>
+                     <td>
+                        {{ $theater->address }}
+                     </td>
+                     <td><a href="{{ route('dashboard.theaters.edit', $theater->id) }}" class="btn btn-success btn-sm" title="edit">
+                        <i class="fas fa-pen"></i></a>
+                     </td>
+                  </tr>
+                  @endforeach
+               </tbody>
+            </table>
          {{ $theaters->appends($request)->links() }}
          @else
-         <h4 class="text-center">belum ada data Theaters</h4>
+            <h4 class="text-center">{{ __('messages.no_data', ['module' => 'Theater']) }}</h4>
          @endif
       </div>
    </div>
