@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function (){
     Route::post('/dashboard/movies', 'Dashboard\MovieController@store')->name('dashboard.movies.store');
 
     //theaters
-    Route::get('/dashboard/theaters', 'Dashboard\TheatersController@index')->name('dashboard.theaters');
+    Route::get('/dashboard/theaters', 'Dashboard\TheaterController@index')->name('dashboard.theaters');
     Route::get('/dashboard/theaters/create', 'Dashboard\TheaterController@create')->name('dashboard.theaters.create');
     Route::get('/dashboard/theaters/{theater}', 'Dashboard\TheaterController@edit')->name('dashboard.theaters.edit');
     Route::put('/dashboard/theaters/{theater}', 'Dashboard\TheaterController@update')->name('dashboard.theaters.update');
