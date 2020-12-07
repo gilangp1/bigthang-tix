@@ -2,7 +2,7 @@
 @section('content')
 
    <div class="mb-2">
-      <a href="{{ route('dashboard.theaters.create') }}" class="btn btn-primary btn-sm">+ Theaters</a>
+      <a href="{{ route('dashboard.theaters.create') }}" class="btn btn-primary btn-sm">+ Create</a>
    </div>
 
    @if(session()->has('message')) 
