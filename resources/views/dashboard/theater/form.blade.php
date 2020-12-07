@@ -26,20 +26,20 @@
                   @endif
                   <div class="form-group">
                      <label for="theater">Theater</label>
-                     <input type="text" class="form-control @error('title') {{ 'is-invalid' }}  @enderror" name="theater" value="{{ old('theater') ?? $theater->title ?? '' }}">
-                     @error('title')
+                     <input type="text" class="form-control @error('theater') {{ 'is-invalid' }}  @enderror" name="theater" value="{{ old('theater') ?? $theater->theater ?? '' }}">
+                     @error('theater')
                         <span class="text-danger">{{ $message }}</span>
                      @enderror
                   </div>
                   <div class="form-group">
-                     <label for="theater">Address</label>
-                     <textarea name="theater" class="form-control @error('description') {{ 'is-invalid' }} @enderror">{{ old('description') ?? $theater->description ?? '' }}</textarea>
-                     @error('description')
+                     <label for="address">Address</label>
+                     <textarea name="address" class="form-control @error('address') {{ 'is-invalid' }} @enderror">{{ old('address') ?? $theater->address ?? '' }}</textarea>
+                     @error('address')
                         <span class="text-danger">{{ $message }}</span>
                      @enderror
                   </div>
                   <div class="mb-4">
-                     <div class="form-group mt-4">
+                     <div class="form-group mt-0">
                         <label for="status">Status</label>
                      </div>
                      <div class="form-check form-check-inline">
@@ -50,6 +50,9 @@
                         <input type="radio" name="status" class="form-check-input" value="inactive" id="inactive">
                         <label for="inactive" class="form-check-label">Inactive</label>
                      </div>
+                     @error('status')
+                     <span class="text-danger">{{ $message }}</span>
+                     @enderror
                   </div>
                   <div class="form-group mb-0">
                      <button type="button" onclick="window.history.back();" class="btn btn-secondary btn-sm">Cancel</button>
@@ -71,7 +74,7 @@
             </div>
 
             <div class="modal-body">
-               <p>Apakah anda yakin ingin menghapus film, <strong>{{ $theater->title }}</strong></p>
+               <p>Apakah anda yakin ingin menghapus film, <strong>{{ $theater->theater }}</strong></p>
             </div>
 
             <div class="modal-footer">
