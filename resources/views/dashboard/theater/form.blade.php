@@ -43,11 +43,11 @@
                         <label for="status">Status</label>
                      </div>
                      <div class="form-check form-check-inline">
-                        <input type="radio" name="status" class="form-check-input" value="active" id="active">
+                        <input type="radio" name="status" class="form-check-input" value="active" id="active" @if((old('status') ?? $theater->status ?? '') == 'active') checked @endif>
                         <label for="active" class="form-check-label">Active</label>
                      </div>
                      <div class="form-check form-check-inline">
-                        <input type="radio" name="status" class="form-check-input" value="inactive" id="inactive">
+                        <input type="radio" name="status" class="form-check-input" value="inactive" id="inactive" @if((old('status') ?? $theater->status ?? '') == 'inactive') checked @endif>
                         <label for="inactive" class="form-check-label">Inactive</label>
                      </div>
                      @error('status')
@@ -78,7 +78,7 @@
             </div>
 
             <div class="modal-footer">
-               <form action="{{ route('dashboard.movies.delete', $theater->id) }}" method="post">
+               <form action="{{ route('dashboard.theaters.delete', $theater->id) }}" method="post">
                   @csrf
                   @method('delete')
                   <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button>
